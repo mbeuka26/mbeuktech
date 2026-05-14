@@ -98,9 +98,9 @@ body.lang-en [data-en]{display:revert}
 /* ============================
    HERO
    ============================ */
-.hero-wrap{position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(10,132,255,.06),transparent),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(124,58,237,.05),transparent);pointer-events:none}
-#hero{padding:140px 28px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative}
+.hero-wrap{position:relative;overflow:hidden;background:#fff}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+#hero{padding:140px 28px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:52px;position:relative}
 .heyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:22px;padding:6px 14px;background:var(--blue-l);border-radius:30px;border:1px solid var(--blue-m)}
 .hh1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.5vw,58px);line-height:1.12;color:var(--ink);letter-spacing:-.5px;margin-bottom:22px}
 .hh1 em{font-style:italic;color:var(--blue)}
@@ -358,6 +358,7 @@ textarea.aminput{resize:vertical;min-height:80px}
 @media(max-width:900px){
   #hero{grid-template-columns:1fr;gap:48px;padding:120px 24px 70px}
   .hb1,.hb2{display:none}
+  .hvis>div{max-width:360px!important;margin:0 auto}
   .wg{grid-template-columns:1fr 1fr}
   .amg{grid-template-columns:1fr 1fr}
   .amstats{grid-template-columns:1fr 1fr}
@@ -466,8 +467,74 @@ textarea.aminput{resize:vertical;min-height:80px}
 
 <!-- ========== HERO ========== -->
 <div id="top" class="hero-wrap">
-  <div class="hero-bg"></div>
-  <div style="max-width:1200px;margin:0 auto">
+  <!-- ===== HERO BACKGROUND SVG ILLUSTRATION ===== -->
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0" viewBox="0 0 1400 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="hrg1" cx="78%" cy="50%" r="55%">
+        <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="hrg2" cx="92%" cy="15%" r="35%">
+        <stop offset="0%" stop-color="#ede9fe" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="hrg3" cx="60%" cy="90%" r="30%">
+        <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="hdots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+        <circle cx="16" cy="16" r="1.4" fill="#0A84FF" fill-opacity="0.14"/>
+      </pattern>
+      <linearGradient id="hfade" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+        <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <!-- Colour washes -->
+    <rect width="1400" height="720" fill="url(#hrg1)"/>
+    <rect width="1400" height="720" fill="url(#hrg2)"/>
+    <rect width="1400" height="720" fill="url(#hrg3)"/>
+    <!-- Dot grid covering right 65% of canvas -->
+    <rect x="490" y="0" width="910" height="720" fill="url(#hdots)"/>
+    <!-- Gradient mask to fade dots cleanly on the left -->
+    <rect x="490" y="0" width="320" height="720" fill="url(#hfade)"/>
+    <!-- Large decorative circles (depth rings) -->
+    <circle cx="1060" cy="360" r="340" fill="none" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.07"/>
+    <circle cx="1060" cy="360" r="250" fill="none" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.05"/>
+    <circle cx="1060" cy="360" r="160" fill="#0A84FF" fill-opacity="0.025"/>
+    <circle cx="1300" cy="80" r="180" fill="#7C3AED" fill-opacity="0.05"/>
+    <circle cx="720" cy="600" r="130" fill="#0A84FF" fill-opacity="0.04"/>
+    <!-- Corner accent top-right -->
+    <path d="M1310 0 L1400 0 L1400 110" fill="none" stroke="#7C3AED" stroke-width="2" stroke-opacity="0.1" stroke-linecap="round"/>
+    <path d="M1340 0 L1400 0 L1400 70" fill="none" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.08" stroke-linecap="round"/>
+    <!-- Tech circuit lines -->
+    <line x1="540" y1="130" x2="680" y2="130" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.18" stroke-dasharray="5 4"/>
+    <circle cx="540" cy="130" r="3.5" fill="#0A84FF" fill-opacity="0.25"/>
+    <circle cx="680" cy="130" r="5" fill="#0A84FF" fill-opacity="0.2"/>
+    <line x1="1220" y1="240" x2="1370" y2="240" stroke="#7C3AED" stroke-width="1.5" stroke-opacity="0.14" stroke-dasharray="5 4"/>
+    <circle cx="1220" cy="240" r="3.5" fill="#7C3AED" fill-opacity="0.2"/>
+    <circle cx="1370" cy="240" r="3.5" fill="#7C3AED" fill-opacity="0.2"/>
+    <line x1="490" y1="500" x2="600" y2="500" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.14"/>
+    <circle cx="490" cy="500" r="3" fill="#0A84FF" fill-opacity="0.2"/>
+    <circle cx="600" cy="500" r="3" fill="#0A84FF" fill-opacity="0.2"/>
+    <line x1="820" y1="60" x2="820" y2="180" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.13" stroke-dasharray="5 4"/>
+    <circle cx="820" cy="60" r="3.5" fill="#0A84FF" fill-opacity="0.2"/>
+    <line x1="1150" y1="560" x2="1280" y2="560" stroke="#7C3AED" stroke-width="1.5" stroke-opacity="0.12" stroke-dasharray="5 4"/>
+    <circle cx="1150" cy="560" r="3" fill="#7C3AED" fill-opacity="0.2"/>
+    <!-- Scattered accent dots -->
+    <circle cx="510" cy="280" r="5" fill="#0A84FF" fill-opacity="0.12"/>
+    <circle cx="560" cy="380" r="4" fill="#7C3AED" fill-opacity="0.1"/>
+    <circle cx="490" cy="430" r="3" fill="#0A84FF" fill-opacity="0.1"/>
+    <circle cx="1320" cy="380" r="5" fill="#7C3AED" fill-opacity="0.14"/>
+    <circle cx="1370" cy="500" r="4" fill="#0A84FF" fill-opacity="0.12"/>
+    <circle cx="1395" cy="160" r="6" fill="#7C3AED" fill-opacity="0.09"/>
+    <!-- Mini floating card shapes (abstract) -->
+    <rect x="540" y="570" width="80" height="44" rx="8" fill="#0A84FF" fill-opacity="0.06" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.12"/>
+    <rect x="540" y="580" width="30" height="6" rx="3" fill="#0A84FF" fill-opacity="0.2"/>
+    <rect x="540" y="592" width="50" height="4" rx="2" fill="#0A84FF" fill-opacity="0.12"/>
+    <rect x="1230" y="600" width="90" height="50" rx="8" fill="#7C3AED" fill-opacity="0.06" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.12"/>
+  </svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1">
     <div id="hero">
       <div>
         <div class="heyebrow au">🌍 <span data-fr>Technologie africaine de pointe</span><span data-en>African technology at its best</span></div>
@@ -489,30 +556,113 @@ textarea.aminput{resize:vertical;min-height:80px}
           <div><div class="sn">100%</div><div class="sl">Made in Africa</div></div>
         </div>
       </div>
+      <!-- ===== HERO ILLUSTRATION : SaaS Dashboard ===== -->
       <div class="hvis au d2">
-        <div style="position:relative;width:100%;max-width:370px">
-          <div class="hcard">
-            <svg class="hclogo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="hgM" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#c8d4e8"/><stop offset="100%" stop-color="#ffffff"/>
-                </linearGradient>
-                <linearGradient id="hgT" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#0056d6"/>
-                </linearGradient>
-              </defs>
-              <rect width="200" height="200" rx="40" fill="#111827"/>
-              <circle cx="100" cy="100" r="83" fill="none" stroke="#0A84FF" stroke-width="5"
-                stroke-dasharray="350 175" stroke-linecap="round" transform="rotate(-42 100 100)"/>
-              <text x="30" y="128" font-family="Arial Black,sans-serif" font-weight="900" font-size="82" fill="url(#hgM)">M</text>
-              <text x="112" y="125" font-family="Arial Black,sans-serif" font-weight="900" font-size="74" fill="url(#hgT)">T</text>
-            </svg>
-            <div class="hct">Mbeuk'Technologies</div>
-            <div class="hcs">Innover · Développer · Transformer</div>
-            <div class="hca" id="miniApps"></div>
+        <div style="position:relative;width:100%;max-width:460px">
+
+          <!-- ── Browser / Dashboard frame ── -->
+          <div style="background:linear-gradient(145deg,#1e3a5f,#0f172a);border-radius:22px;padding:3px;box-shadow:0 32px 90px rgba(0,0,0,.38),0 8px 36px rgba(10,132,255,.18)">
+
+            <!-- Browser chrome -->
+            <div style="background:#1a2744;border-radius:20px 20px 0 0;padding:11px 16px;display:flex;align-items:center;gap:10px">
+              <div style="display:flex;gap:6px;flex-shrink:0">
+                <div style="width:10px;height:10px;border-radius:50%;background:#ef4444;opacity:.75"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b;opacity:.75"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:#10b981;opacity:.75"></div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,.07);border-radius:6px;padding:5px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:rgba(255,255,255,.28);font-weight:500;letter-spacing:.2px">mbeuk-technologies.vercel.app</div>
+            </div>
+
+            <!-- Dashboard body -->
+            <div style="background:#0b1628;border-radius:0 0 20px 20px;padding:18px 18px 20px">
+
+              <!-- Dashboard header -->
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);font-family:'Plus Jakarta Sans',sans-serif">📊 Mbeuk'Tech — Dashboard</div>
+                <div style="background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);border-radius:20px;padding:3px 10px;font-size:9px;color:#34d399;font-weight:700;display:flex;align-items:center;gap:4px"><span style="width:6px;height:6px;border-radius:50%;background:#10b981;display:inline-block;animation:pulse 2s infinite"></span>En ligne</div>
+              </div>
+
+              <!-- KPI cards -->
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px">
+                <div style="background:rgba(10,132,255,.14);border:1px solid rgba(10,132,255,.22);border-radius:10px;padding:11px 8px;text-align:center">
+                  <div style="font-size:22px;font-weight:800;color:#60a5fa;line-height:1;font-family:'Plus Jakarta Sans',sans-serif">12</div>
+                  <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif">Apps SaaS</div>
+                </div>
+                <div style="background:rgba(124,58,237,.13);border:1px solid rgba(124,58,237,.22);border-radius:10px;padding:11px 8px;text-align:center">
+                  <div style="font-size:22px;font-weight:800;color:#a78bfa;line-height:1;font-family:'Plus Jakarta Sans',sans-serif">20+</div>
+                  <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif">Pays</div>
+                </div>
+                <div style="background:rgba(16,185,129,.11);border:1px solid rgba(16,185,129,.22);border-radius:10px;padding:11px 8px;text-align:center">
+                  <div style="font-size:22px;font-weight:800;color:#34d399;line-height:1;font-family:'Plus Jakarta Sans',sans-serif">40%</div>
+                  <div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif">Commission</div>
+                </div>
+              </div>
+
+              <!-- Chart area -->
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px;margin-bottom:11px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+                  <div style="font-size:9.5px;color:rgba(255,255,255,.38);font-weight:700;text-transform:uppercase;letter-spacing:.8px;font-family:'Plus Jakarta Sans',sans-serif">Croissance utilisateurs</div>
+                  <div style="font-size:9px;color:#10b981;font-weight:800;background:rgba(16,185,129,.1);padding:2px 7px;border-radius:4px">+24% ↑</div>
+                </div>
+                <!-- SVG bar chart -->
+                <svg viewBox="0 0 360 56" style="width:100%;display:block" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Horizontal grid lines -->
+                  <line x1="0" y1="14" x2="360" y2="14" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+                  <line x1="0" y1="28" x2="360" y2="28" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+                  <line x1="0" y1="42" x2="360" y2="42" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+                  <!-- Bars with gradient-like colors -->
+                  <rect x="2"   y="38" width="38" height="16" rx="3" fill="#0A84FF" fill-opacity=".30"/>
+                  <rect x="52"  y="28" width="38" height="26" rx="3" fill="#0A84FF" fill-opacity=".40"/>
+                  <rect x="102" y="32" width="38" height="22" rx="3" fill="#0A84FF" fill-opacity=".38"/>
+                  <rect x="152" y="18" width="38" height="36" rx="3" fill="#0A84FF" fill-opacity=".55"/>
+                  <rect x="202" y="24" width="38" height="30" rx="3" fill="#0A84FF" fill-opacity=".50"/>
+                  <rect x="252" y="10" width="38" height="44" rx="3" fill="#0A84FF" fill-opacity=".65"/>
+                  <rect x="302" y="2"  width="38" height="52" rx="3" fill="#3b82f6"/>
+                  <!-- Trend line -->
+                  <polyline points="21,46 71,41 121,43 171,36 221,39 271,27 321,18" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-opacity=".6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="321" cy="18" r="3" fill="#a78bfa"/>
+                </svg>
+              </div>
+
+              <!-- App icon grid — 12 apps -->
+              <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px">
+                <div style="background:rgba(10,132,255,.18);border:1px solid rgba(10,132,255,.3);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukCV">📄</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukImmigPro">✈️</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukAdtrack">📈</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukSalary">💰</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukBiz">🏢</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukTontine">🤝</div>
+                <div style="background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukChurch">⛪</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukBTP">🏗️</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukHR">👥</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukMechanical">⚙️</div>
+                <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukAnalytics">📊</div>
+                <div style="background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.2);border-radius:8px;padding:7px 4px;text-align:center;font-size:15px" title="MbeukFactory">🏭</div>
+              </div>
+
+            </div><!-- /dashboard body -->
+          </div><!-- /browser frame -->
+
+          <!-- ── Floating badge 1 — top right ── -->
+          <div style="position:absolute;top:-18px;right:-22px;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.13);border:1px solid #e2e8f0;padding:10px 15px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#0f172a;animation:float 4s ease-in-out infinite;white-space:nowrap;z-index:10;font-family:'Plus Jakarta Sans',sans-serif">
+            ✅ <span data-fr>12 applications pro</span><span data-en>12 pro apps</span>
           </div>
-          <div class="hbadge hb1">✅ <span data-fr>12 applications pro</span><span data-en>12 pro applications</span></div>
-          <div class="hbadge hb2">🌍 <span data-fr>20+ pays couverts</span><span data-en>20+ countries</span></div>
+
+          <!-- ── Floating badge 2 — bottom left ── -->
+          <div style="position:absolute;bottom:30px;left:-30px;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.13);border:1px solid #e2e8f0;padding:10px 15px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#0f172a;animation:float 4s ease-in-out infinite;animation-delay:-1.6s;white-space:nowrap;z-index:10;font-family:'Plus Jakarta Sans',sans-serif">
+            🌍 <span data-fr>20+ pays couverts</span><span data-en>20+ countries</span>
+          </div>
+
+          <!-- ── Floating badge 3 — middle left ── -->
+          <div style="position:absolute;top:42%;left:-34px;background:linear-gradient(135deg,#0A84FF,#7C3AED);color:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(10,132,255,.32);padding:10px 15px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;animation:float 4s ease-in-out infinite;animation-delay:-2.8s;white-space:nowrap;z-index:10;font-family:'Plus Jakarta Sans',sans-serif">
+            💰 <span data-fr>Dès 2 100 FCFA/an</span><span data-en>From 2,100 FCFA/yr</span>
+          </div>
+
+          <!-- ── Floating badge 4 — top left (new) ── -->
+          <div style="position:absolute;top:12%;left:-28px;background:#0f172a;color:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.25);padding:9px 13px;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;animation:float 5s ease-in-out infinite;animation-delay:-1s;white-space:nowrap;z-index:10;font-family:'Plus Jakarta Sans',sans-serif">
+            🚀 <span style="color:#60a5fa" data-fr>Made in Africa</span><span style="color:#60a5fa" data-en>Made in Africa</span>
+          </div>
+
         </div>
       </div>
     </div>
