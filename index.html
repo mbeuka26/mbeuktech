@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0A84FF"/>
+<meta name="description" content="Mbeuk'Technologies — Suite SaaS africaine premium : 12 applications professionnelles pour l'emploi, la finance, la gestion d'entreprise et l'industrie. Made in Cameroon."/>
+<meta name="keywords" content="SaaS Afrique, applications business Cameroun, CV professionnel, gestion RH, BTP digital, tontine digitale, MbeukTech, logiciels africains"/>
+<meta property="og:title" content="Mbeuk'Technologies — Solutions SaaS pour l'Afrique"/>
+<meta property="og:description" content="12 applications SaaS professionnelles pour l'emploi, la finance, la gestion d'entreprise et l'industrie. Conçues pour l'Afrique."/>
+<meta property="og:type" content="website"/>
+<title>Mbeuk'Technologies — Innover · Développer · Transformer | SaaS Africain Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ============================
+   RESET & BASE
+   ============================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#fff;color:#0f172a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#f1f5f9}
+::-webkit-scrollbar-thumb{background:#0A84FF;border-radius:4px}
+
+/* ============================
+   DESIGN TOKENS
+   ============================ */
+:root{
+  --blue:#0A84FF;--blue-h:#0068d6;--blue-l:#e8f2ff;--blue-m:#b8d8ff;
+  --violet:#7C3AED;--violet-h:#6d28d9;--violet-l:#f3effe;--violet-m:#c4b5fd;
+  --green:#10b981;--amber:#f59e0b;
+  --ink:#0f172a;--ink2:#334155;--ink3:#64748b;--ink4:#94a3b8;
+  --line:#e2e8f0;--line2:#f1f5f9;
+  --card:#f8fafc;--r:14px;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.06);
+  --shm:0 4px 20px rgba(0,0,0,.09),0 1px 4px rgba(0,0,0,.05);
+  --shb:0 8px 30px rgba(10,132,255,.2);
+  --shv:0 8px 30px rgba(124,58,237,.2);
+}
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.au{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.au.in{opacity:1;transform:translateY(0)}
+.au.d1{transition-delay:.08s}.au.d2{transition-delay:.16s}.au.d3{transition-delay:.24s}
+.au.d4{transition-delay:.32s}.au.d5{transition-delay:.40s}.au.d6{transition-delay:.48s}
+
+/* ============================
+   LANGUAGE TOGGLE
+   ============================ */
+[data-en]{display:none}
+body.lang-en [data-fr]{display:none}
+body.lang-en [data-en]{display:revert}
+
+/* ============================
+   NAVBAR
+   ============================ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+#nav.raised{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nw{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0}
+.lsvg{width:46px;height:46px;flex-shrink:0}
+.ln{font-weight:800;font-size:15px;color:var(--ink);line-height:1.1}
+.ln span{color:var(--blue)}
+.lt{font-size:9px;color:var(--ink4);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.nlinks{display:flex;align-items:center;gap:2px}
+.na{font-size:13.5px;font-weight:500;color:var(--ink2);padding:7px 12px;border-radius:8px;transition:color .2s,background .2s;cursor:pointer;white-space:nowrap}
+.na:hover{color:var(--blue);background:var(--blue-l)}
+.nr{display:flex;align-items:center;gap:10px}
+.lsw{display:flex;align-items:center;gap:2px;background:var(--line2);border-radius:8px;padding:3px}
+.lb{font-size:12px;font-weight:700;padding:5px 10px;border-radius:6px;color:var(--ink3);transition:all .2s;letter-spacing:.3px}
+.lb.on{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.lb:hover:not(.on){color:var(--ink)}
+.ncta{background:var(--blue);color:#fff;font-size:13px;font-weight:700;padding:9px 20px;border-radius:9px;transition:all .25s;box-shadow:0 2px 10px rgba(10,132,255,.3);white-space:nowrap}
+.ncta:hover{background:var(--blue-h);box-shadow:0 4px 18px rgba(10,132,255,.4);transform:translateY(-1px)}
+.hbg{display:none;padding:8px;border-radius:8px;color:var(--ink);font-size:20px;transition:background .2s}
+.hbg:hover{background:var(--line2)}
+/* Mobile menu */
+.mob{display:none;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:16px 24px 24px;z-index:880;box-shadow:0 8px 30px rgba(0,0,0,.1);animation:slideDown .25s ease;max-height:calc(100vh - 68px);overflow-y:auto}
+.mob.open{display:flex}
+.ma{font-size:15px;font-weight:500;color:var(--ink2);padding:13px 16px;border-radius:10px;text-align:left;border-bottom:1px solid var(--line2);transition:all .2s}
+.ma:hover{color:var(--blue);background:var(--blue-l)}
+.ml{display:flex;gap:8px;margin:16px 0 0}
+.mlb{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;font-weight:700;color:var(--ink3);transition:all .2s}
+.mlb.on{background:var(--blue-l);color:var(--blue);border-color:var(--blue-m)}
+
+/* ============================
+   HERO
+   ============================ */
+.hero-wrap{position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(10,132,255,.06),transparent),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(124,58,237,.05),transparent);pointer-events:none}
+#hero{padding:140px 28px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative}
+.heyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:22px;padding:6px 14px;background:var(--blue-l);border-radius:30px;border:1px solid var(--blue-m)}
+.hh1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,4.5vw,58px);line-height:1.12;color:var(--ink);letter-spacing:-.5px;margin-bottom:22px}
+.hh1 em{font-style:italic;color:var(--blue)}
+.hp{font-size:clamp(14px,1.5vw,17px);color:var(--ink3);line-height:1.75;margin-bottom:36px;max-width:500px}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.bmain{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:11px;box-shadow:0 4px 18px rgba(10,132,255,.35);transition:all .25s}
+.bmain:hover{background:var(--blue-h);transform:translateY(-2px);box-shadow:0 8px 28px rgba(10,132,255,.45)}
+.bwa{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#075E54;font-size:15px;font-weight:700;padding:13px 28px;border-radius:11px;border:2px solid var(--line);transition:all .25s}
+.bwa:hover{border-color:#25D366;color:#25D366;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.2)}
+.hstats{display:flex;gap:36px;padding-top:36px;border-top:1px solid var(--line)}
+.sn{font-size:28px;font-weight:800;color:var(--blue);line-height:1}
+.sl{font-size:12px;color:var(--ink4);margin-top:4px;font-weight:500}
+.hvis{position:relative;display:flex;justify-content:center;align-items:center}
+.hcard{background:#fff;border-radius:20px;box-shadow:var(--shm);border:1px solid var(--line);padding:32px;width:100%;max-width:360px;position:relative;z-index:2}
+.hclogo{width:76px;height:76px;margin:0 auto 18px;animation:float 4s ease-in-out infinite}
+.hct{font-size:17px;font-weight:800;text-align:center;color:var(--ink);margin-bottom:5px}
+.hcs{font-size:11px;text-align:center;color:var(--ink4);margin-bottom:22px;letter-spacing:1.5px;text-transform:uppercase}
+.hca{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mapp{background:var(--line2);border-radius:10px;padding:11px;display:flex;align-items:center;gap:9px;border:1px solid var(--line);transition:all .2s;cursor:pointer}
+.mapp:hover{background:var(--blue-l);border-color:var(--blue-m)}
+.mai{font-size:18px}.man{font-size:11px;font-weight:700;color:var(--ink2)}
+.hbadge{position:absolute;background:#fff;border-radius:12px;box-shadow:var(--shm);border:1px solid var(--line);padding:10px 16px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap;animation:float 4s ease-in-out infinite}
+.hb1{top:-18px;right:-28px;animation-delay:-.5s}
+.hb2{bottom:24px;left:-36px;animation-delay:-1.5s}
+
+/* ============================
+   TRUST BAR
+   ============================ */
+#trustbar{background:var(--ink);padding:18px 28px}
+.tbw{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+.tbi{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.65);font-size:13px;font-weight:600}
+.tbi span{font-size:20px}
+.tbsep{width:1px;height:24px;background:rgba(255,255,255,.12)}
+
+/* ============================
+   SECTIONS COMMON
+   ============================ */
+.sec{padding:96px 28px}
+.si{max-width:1200px;margin:0 auto}
+.sh{text-align:center;margin-bottom:64px}
+.slbl{display:inline-block;font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.sh2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,4vw,46px);line-height:1.15;color:var(--ink);letter-spacing:-.3px;margin-bottom:14px}
+.sh2 em{font-style:italic;color:var(--blue)}
+.sdesc{font-size:16px;color:var(--ink3);line-height:1.7;max-width:540px;margin:0 auto}
+.divider{height:1px;background:var(--line);max-width:1200px;margin:0 auto}
+
+/* ============================
+   APPS SECTION
+   ============================ */
+#apps{background:#f8fafc}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.ac{background:#fff;border-radius:var(--r);border:1px solid var(--line);padding:26px 24px;transition:all .3s ease;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.ac:hover::before{transform:scaleX(1)}
+.ac:hover{border-color:var(--blue-m);box-shadow:var(--shb);transform:translateY(-4px)}
+.act{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.aiw{width:48px;height:48px;flex-shrink:0;background:var(--blue-l);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid var(--blue-m)}
+.ain{font-size:16px;font-weight:800;color:var(--ink);line-height:1.2}
+.ait{font-size:11px;color:var(--blue);margin-top:3px;font-weight:600}
+.aright{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.abp{font-size:9px;font-weight:800;padding:3px 8px;border-radius:5px;letter-spacing:.8px;text-align:center}
+.abp.pro{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff}
+.abp.price{background:var(--blue-l);color:var(--blue);border:1px solid var(--blue-m);font-size:10px}
+.abp.devis{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0;font-size:10px}
+.adesc{font-size:13.5px;color:var(--ink3);line-height:1.65;margin-bottom:16px;flex:1}
+.afts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.ft{font-size:11.5px;color:var(--ink2);font-weight:500;background:var(--line2);border:1px solid var(--line);padding:4px 10px;border-radius:6px}
+.abtns{display:flex;gap:8px;margin-top:auto}
+.bsub{flex:1;background:var(--blue);color:#fff;font-size:13px;font-weight:700;padding:10px 16px;border-radius:9px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.bsub:hover{background:var(--blue-h);transform:translateY(-1px);box-shadow:0 4px 14px rgba(10,132,255,.35)}
+.bdet{background:var(--line2);color:var(--ink2);font-size:13px;font-weight:600;padding:10px 16px;border-radius:9px;border:1px solid var(--line);transition:all .2s}
+.bdet:hover{background:var(--blue-l);color:var(--blue);border-color:var(--blue-m)}
+
+/* ============================
+   WHY SECTION
+   ============================ */
+#why{background:#fff}
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.wc{padding:28px 24px;border-radius:var(--r);border:1px solid var(--line);background:#fff;transition:all .3s}
+.wc:hover{border-color:var(--blue-m);background:var(--blue-l);transform:translateY(-3px);box-shadow:var(--shm)}
+.we{font-size:32px;margin-bottom:16px;display:block}
+.wt{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.wd{font-size:14px;color:var(--ink3);line-height:1.65}
+
+/* ============================
+   AMBASSADOR SECTION
+   ============================ */
+#ambassador{background:linear-gradient(135deg,#0f172a 0%,#1a1040 50%,#0f172a 100%);position:relative;overflow:hidden}
+#ambassador::before{content:'';position:absolute;top:-40%;left:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(124,58,237,.13),transparent 65%);pointer-events:none}
+#ambassador::after{content:'';position:absolute;bottom:-30%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(10,132,255,.11),transparent 65%);pointer-events:none}
+#ambassador .slbl{color:#a78bfa}
+#ambassador .sh2{color:#fff}
+#ambassador .sdesc{color:rgba(255,255,255,.55)}
+.amg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px}
+.amc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:28px 22px;backdrop-filter:blur(10px);transition:all .3s;text-align:center}
+.amc:hover{background:rgba(255,255,255,.09);border-color:rgba(124,58,237,.4);transform:translateY(-3px);box-shadow:0 8px 30px rgba(124,58,237,.18)}
+.amci{font-size:36px;margin-bottom:14px;display:block}
+.amcn{font-size:16px;font-weight:800;color:#fff;margin-bottom:8px}
+.amcd{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.6}
+/* Commission highlight */
+.amhighlight{text-align:center;margin-bottom:56px;padding:36px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:20px;backdrop-filter:blur(10px)}
+.amhlarge{font-size:clamp(48px,8vw,80px);font-weight:800;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px}
+.amhsub{font-size:18px;color:rgba(255,255,255,.7);font-weight:600}
+/* Two column layout */
+.amgrid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.ambenefbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px}
+.ambenefbox h4{font-size:17px;font-weight:800;color:#fff;margin-bottom:22px}
+.ambenefits{display:flex;flex-direction:column;gap:16px}
+.ambenefit{display:flex;align-items:flex-start;gap:14px}
+.ambullet{width:26px;height:26px;background:linear-gradient(135deg,var(--violet),var(--blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;flex-shrink:0;margin-top:1px}
+.ambt{font-size:14px;color:rgba(255,255,255,.7);line-height:1.55}
+.ambt strong{color:#fff}
+/* Form */
+.amformbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px}
+.amformbox h4{font-size:17px;font-weight:800;color:#fff;margin-bottom:22px}
+.amfrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.aminput{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 16px;font-size:14px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;outline:none}
+.aminput::placeholder{color:rgba(255,255,255,.28)}
+.aminput:focus{border-color:rgba(124,58,237,.5);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+.aminput.full{width:100%;margin-bottom:12px;display:block}
+textarea.aminput{resize:vertical;min-height:80px}
+.amselect{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.ambtn{width:100%;background:linear-gradient(135deg,var(--violet),var(--blue));color:#fff;font-size:15px;font-weight:700;padding:14px;border-radius:10px;transition:all .25s;margin-top:16px;box-shadow:0 4px 18px rgba(124,58,237,.3)}
+.ambtn:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,58,237,.45)}
+/* Ambassador stats */
+.amstats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.amstt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;text-align:center}
+.amstn{font-size:32px;font-weight:800;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.amstl{font-size:13px;color:rgba(255,255,255,.45);font-weight:500}
+
+/* ============================
+   LICENSE STORE
+   ============================ */
+#license{background:linear-gradient(160deg,#f0f4ff 0%,#faf5ff 60%,#fff 100%)}
+#license .slbl{color:var(--violet)}
+#license .sh2 em{color:var(--violet)}
+.licgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.licc{background:#fff;border-radius:var(--r);border:1px solid var(--line);padding:32px 24px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.licc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.licc:hover::after{transform:scaleX(1)}
+.licc:hover{transform:translateY(-4px);box-shadow:var(--shv)}
+.licci{font-size:36px;margin-bottom:16px;display:block}
+.liccn{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.liccp{font-size:22px;font-weight:800;color:var(--violet);margin-bottom:8px}
+.liccd{font-size:13px;color:var(--ink3);line-height:1.6;max-width:220px;margin:0 auto}
+.licctabottom{display:flex;justify-content:center;margin-top:40px}
+.blicense{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--violet),var(--blue));color:#fff;font-size:16px;font-weight:700;padding:16px 38px;border-radius:12px;box-shadow:0 4px 20px rgba(124,58,237,.35);transition:all .25s}
+.blicense:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,58,237,.45)}
+
+/* ============================
+   SCHOOL SECTION
+   ============================ */
+#school{background:#fff}
+.schgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.schvis{position:relative}
+.schcard{background:linear-gradient(145deg,#0f172a,#1e3a5f);border-radius:22px;padding:36px;color:#fff;position:relative;overflow:hidden}
+.schcard::before{content:'';position:absolute;top:-30%;right:-20%;width:350px;height:350px;background:radial-gradient(circle,rgba(10,132,255,.2),transparent 65%);pointer-events:none}
+.schcn{font-size:20px;font-weight:800;margin-bottom:6px}
+.schcs{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.schitems{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.schitem{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:8px;transition:all .2s}
+.schitem:hover{background:rgba(255,255,255,.12)}
+.schitem span{font-size:20px}
+.schbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;color:#34d399;margin-top:24px}
+.schtext h3{font-family:'Instrument Serif',serif;font-size:clamp(26px,3vw,40px);color:var(--ink);line-height:1.2;margin-bottom:14px}
+.schtext h3 em{font-style:italic;color:var(--blue)}
+.schtext p{font-size:15px;color:var(--ink3);line-height:1.75;margin-bottom:28px}
+.schbenefits{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.schbenefit{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink2)}
+.schbullet{width:22px;height:22px;background:var(--blue-l);border:1px solid var(--blue-m);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.bschool{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:11px;box-shadow:0 4px 18px rgba(10,132,255,.35);transition:all .25s}
+.bschool:hover{background:var(--blue-h);transform:translateY(-2px);box-shadow:0 8px 28px rgba(10,132,255,.45)}
+
+/* ============================
+   CONTACT
+   ============================ */
+#contact{background:#f8fafc}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+.cc{background:#fff;border-radius:var(--r);border:1px solid var(--line);padding:28px 22px;text-align:center;transition:all .3s;display:block}
+.cc:hover{border-color:var(--blue-m);transform:translateY(-3px);box-shadow:var(--shm)}
+.ci{font-size:32px;margin-bottom:12px;display:block}
+.cl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--ink4);margin-bottom:6px}
+.cv{font-size:14px;font-weight:600;color:var(--ink);word-break:break-all}
+.cbox{background:#fff;border-radius:20px;border:1px solid var(--line);padding:52px 40px;text-align:center;box-shadow:var(--sh)}
+.cbox h3{font-family:'Instrument Serif',serif;font-size:30px;color:var(--ink);margin-bottom:12px}
+.cbox p{color:var(--ink3);margin-bottom:30px;font-size:15px;max-width:440px;margin-left:auto;margin-right:auto}
+.cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.bctwa{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:11px;box-shadow:0 4px 18px rgba(37,211,102,.3);transition:all .25s}
+.bctwa:hover{background:#1aaa52;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+.bctem{display:inline-flex;align-items:center;gap:9px;background:var(--line2);color:var(--ink2);font-size:15px;font-weight:700;padding:13px 28px;border-radius:11px;border:2px solid var(--line);transition:all .25s}
+.bctem:hover{border-color:var(--blue-m);color:var(--blue);background:var(--blue-l);transform:translateY(-2px)}
+.bphone{display:inline-flex;align-items:center;gap:9px;background:var(--line2);color:var(--ink2);font-size:15px;font-weight:700;padding:13px 28px;border-radius:11px;border:2px solid var(--line);transition:all .25s}
+.bphone:hover{border-color:#f59e0b;color:#d97706;background:#fffbeb;transform:translateY(-2px)}
+
+/* ============================
+   FOOTER
+   ============================ */
+#footer{background:#0f172a;color:rgba(255,255,255,.7);padding:70px 28px 32px}
+.fi{max-width:1200px;margin:0 auto}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.fln{font-weight:800;font-size:14px;color:#fff}
+.fln span{color:#60a5fa}
+.fab{font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.38);margin-bottom:22px;max-width:280px}
+.fsoc{display:flex;gap:8px;flex-wrap:wrap}
+.soc{width:36px;height:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.5);transition:all .2s;text-decoration:none}
+.soc:hover{background:rgba(10,132,255,.2);border-color:rgba(10,132,255,.4);color:#fff;transform:translateY(-2px)}
+.fct{font-size:12px;font-weight:800;color:rgba(255,255,255,.8);letter-spacing:1px;text-transform:uppercase;margin-bottom:18px}
+.fa{display:block;font-size:13.5px;color:rgba(255,255,255,.36);margin-bottom:11px;transition:color .2s;background:none;border:none;text-align:left;cursor:pointer}
+.fa:hover{color:rgba(255,255,255,.85)}
+.fbot{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fc{font-size:13px;color:rgba(255,255,255,.26)}
+
+/* ============================
+   WA FAB
+   ============================ */
+.waf{position:fixed;bottom:28px;right:28px;width:56px;height:56px;z-index:800;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);animation:float 3.5s ease-in-out infinite;transition:transform .3s,box-shadow .3s}
+.waf:hover{transform:scale(1.1)!important;animation:none;box-shadow:0 8px 35px rgba(37,211,102,.6)}
+.wtt{position:absolute;right:66px;background:#0f172a;color:#fff;font-size:12px;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s}
+.waf:hover .wtt{opacity:1}
+
+/* ============================
+   MODAL
+   ============================ */
+.mov{position:fixed;inset:0;z-index:1000;background:rgba(15,23,42,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s ease}
+.mob2{background:#fff;border-radius:20px;max-width:540px;width:100%;padding:36px;max-height:88vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.2);animation:fadeUp .3s ease}
+.mx{position:absolute;top:14px;right:14px;width:32px;height:32px;background:var(--line2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink3);transition:all .2s}
+.mx:hover{background:var(--line);color:var(--ink)}
+.mh{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.mi2{width:60px;height:60px;flex-shrink:0;background:var(--blue-l);border:1px solid var(--blue-m);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.mna{font-size:22px;font-weight:800;color:var(--ink)}
+.mta{font-size:13px;color:var(--blue);margin-top:3px}
+.mprice{display:inline-flex;align-items:center;gap:6px;background:var(--blue-l);border:1px solid var(--blue-m);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:800;color:var(--blue);margin-bottom:16px}
+.mds{font-size:14.5px;color:var(--ink3);line-height:1.72;margin-bottom:24px}
+.mftl{font-size:13px;font-weight:800;color:var(--ink4);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.mf{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.md{width:6px;height:6px;background:var(--blue);border-radius:50%;flex-shrink:0}
+.mf span{font-size:14px;color:var(--ink2)}
+.mbtns{display:flex;gap:10px;margin-top:26px}
+
+/* ============================
+   OFFLINE BANNER
+   ============================ */
+.offb{position:fixed;top:68px;left:0;right:0;z-index:800;background:#fef9c3;border-bottom:1px solid #fde047;padding:9px 20px;text-align:center;font-size:13px;font-weight:600;color:#713f12;display:none}
+.offb.show{display:block}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media(max-width:1024px){
+  .amgrid{grid-template-columns:1fr}
+  .schgrid{grid-template-columns:1fr;gap:40px}
+  .licgrid{grid-template-columns:1fr 1fr}
+  .ftop{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;gap:48px;padding:120px 24px 70px}
+  .hb1,.hb2{display:none}
+  .wg{grid-template-columns:1fr 1fr}
+  .amg{grid-template-columns:1fr 1fr}
+  .amstats{grid-template-columns:1fr 1fr}
+  .cg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nlinks,.ncta,.lsw{display:none}
+  .hbg{display:flex}
+  .sec{padding:70px 20px}
+  .cg{grid-template-columns:1fr}
+  .ag{grid-template-columns:1fr}
+  .hstats{gap:24px}
+  .cbox{padding:36px 24px}
+  .ambox{padding:28px 20px}
+  .amfrow{grid-template-columns:1fr}
+  .licgrid{grid-template-columns:1fr}
+  .tbw{gap:16px}
+  .schitems{grid-template-columns:1fr}
+  .amgrid{grid-template-columns:1fr}
+  .amstats{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .wg{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr}
+  .fbot{flex-direction:column;text-align:center}
+  .amg{grid-template-columns:1fr}
+  .tbsep{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== OFFLINE BANNER ========== -->
+<div class="offb" id="offb">
+  <span data-fr>📡 Mode hors ligne — Le site fonctionne normalement</span>
+  <span data-en>📡 Offline mode — The site works normally</span>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="nav">
+  <div class="nw">
+    <div class="logo" onclick="goTo('top')">
+      <svg class="lsvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gM" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c8d4e8"/><stop offset="100%" stop-color="#ffffff"/>
+          </linearGradient>
+          <linearGradient id="gT" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#0056d6"/>
+          </linearGradient>
+          <linearGradient id="gArc" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#003eaa"/>
+          </linearGradient>
+        </defs>
+        <rect width="200" height="200" rx="30" fill="#111827"/>
+        <circle cx="100" cy="100" r="83" fill="none" stroke="url(#gArc)" stroke-width="5"
+          stroke-dasharray="350 175" stroke-linecap="round" transform="rotate(-42 100 100)"/>
+        <text x="30" y="128" font-family="Arial Black,sans-serif" font-weight="900" font-size="82" fill="url(#gM)">M</text>
+        <text x="112" y="125" font-family="Arial Black,sans-serif" font-weight="900" font-size="74" fill="url(#gT)">T</text>
+      </svg>
+      <div>
+        <div class="ln">Mbeuk<span>'</span>Technologies</div>
+        <div class="lt">Innover · Développer · Transformer</div>
+      </div>
+    </div>
+    <div class="nlinks">
+      <span class="na" onclick="goTo('top')" data-fr>Accueil</span>
+      <span class="na" onclick="goTo('top')" data-en>Home</span>
+      <span class="na" onclick="goTo('apps')" data-fr>Applications</span>
+      <span class="na" onclick="goTo('apps')" data-en>Apps</span>
+      <span class="na" onclick="goTo('ambassador')" data-fr>Ambassadeurs</span>
+      <span class="na" onclick="goTo('ambassador')" data-en>Ambassadors</span>
+      <span class="na" onclick="goTo('license')" data-fr>Boutique</span>
+      <span class="na" onclick="goTo('license')" data-en>Store</span>
+      <span class="na" onclick="goTo('school')" data-fr>École</span>
+      <span class="na" onclick="goTo('school')" data-en>School</span>
+      <span class="na" onclick="goTo('contact')">Contact</span>
+    </div>
+    <div class="nr">
+      <div class="lsw">
+        <button class="lb on" id="bFR" onclick="setLang('fr')">FR</button>
+        <button class="lb" id="bEN" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="ncta" onclick="goTo('contact')">
+        <span data-fr>Nous contacter</span><span data-en>Contact us</span>
+      </button>
+      <button class="hbg" id="hbg" onclick="toggleMob()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mob" id="mobm">
+  <button class="ma" onclick="goTo('top')"><span data-fr>🏠 Accueil</span><span data-en>🏠 Home</span></button>
+  <button class="ma" onclick="goTo('apps')">💼 Applications</button>
+  <button class="ma" onclick="goTo('ambassador')"><span data-fr>🤝 Ambassadeurs</span><span data-en>🤝 Ambassadors</span></button>
+  <button class="ma" onclick="goTo('license')"><span data-fr>🛒 Boutique Licences</span><span data-en>🛒 License Store</span></button>
+  <button class="ma" onclick="goTo('school')"><span data-fr>🎓 École en ligne</span><span data-en>🎓 Online School</span></button>
+  <button class="ma" onclick="goTo('why')"><span data-fr>✨ Pourquoi nous</span><span data-en>✨ Why us</span></button>
+  <button class="ma" onclick="goTo('contact')">📬 Contact</button>
+  <div class="ml">
+    <button class="mlb on" id="mbFR" onclick="setLang('fr')">🇫🇷 Français</button>
+    <button class="mlb" id="mbEN" onclick="setLang('en')">🇬🇧 English</button>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<div id="top" class="hero-wrap">
+  <div class="hero-bg"></div>
+  <div style="max-width:1200px;margin:0 auto">
+    <div id="hero">
+      <div>
+        <div class="heyebrow au">🌍 <span data-fr>Technologie africaine de pointe</span><span data-en>African technology at its best</span></div>
+        <h1 class="hh1 au d1">
+          <span data-fr>Solutions <em>intelligentes</em> pour particuliers, entreprises et industries</span>
+          <span data-en><em>Intelligent solutions</em> for individuals, businesses &amp; industries</span>
+        </h1>
+        <p class="hp au d2">
+          <span data-fr>Mbeuk'Technologies développe des applications SaaS innovantes pour l'emploi, l'immigration, la finance, la gestion d'entreprise, l'analyse de données, l'industrie et les ressources humaines.</span>
+          <span data-en>Mbeuk'Technologies builds innovative SaaS applications for employment, immigration, finance, business management, data analytics, industry and human resources.</span>
+        </p>
+        <div class="hbtns au d3">
+          <button class="bmain" onclick="goTo('apps')">🚀 <span data-fr>Découvrir nos solutions</span><span data-en>Explore our solutions</span></button>
+          <a href="https://wa.me/237620964316" target="_blank" rel="noopener"><button class="bwa">💬 <span data-fr>Nous contacter</span><span data-en>Contact us</span></button></a>
+        </div>
+        <div class="hstats au d4">
+          <div><div class="sn">12+</div><div class="sl" data-fr>Applications</div><div class="sl" data-en>Applications</div></div>
+          <div><div class="sn">20+</div><div class="sl" data-fr>Pays couverts</div><div class="sl" data-en>Countries</div></div>
+          <div><div class="sn">100%</div><div class="sl">Made in Africa</div></div>
+        </div>
+      </div>
+      <div class="hvis au d2">
+        <div style="position:relative;width:100%;max-width:370px">
+          <div class="hcard">
+            <svg class="hclogo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="hgM" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#c8d4e8"/><stop offset="100%" stop-color="#ffffff"/>
+                </linearGradient>
+                <linearGradient id="hgT" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0A84FF"/><stop offset="100%" stop-color="#0056d6"/>
+                </linearGradient>
+              </defs>
+              <rect width="200" height="200" rx="40" fill="#111827"/>
+              <circle cx="100" cy="100" r="83" fill="none" stroke="#0A84FF" stroke-width="5"
+                stroke-dasharray="350 175" stroke-linecap="round" transform="rotate(-42 100 100)"/>
+              <text x="30" y="128" font-family="Arial Black,sans-serif" font-weight="900" font-size="82" fill="url(#hgM)">M</text>
+              <text x="112" y="125" font-family="Arial Black,sans-serif" font-weight="900" font-size="74" fill="url(#hgT)">T</text>
+            </svg>
+            <div class="hct">Mbeuk'Technologies</div>
+            <div class="hcs">Innover · Développer · Transformer</div>
+            <div class="hca" id="miniApps"></div>
+          </div>
+          <div class="hbadge hb1">✅ <span data-fr>12 applications pro</span><span data-en>12 pro applications</span></div>
+          <div class="hbadge hb2">🌍 <span data-fr>20+ pays couverts</span><span data-en>20+ countries</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TRUST BAR ========== -->
+<div id="trustbar">
+  <div class="tbw">
+    <div class="tbi"><span>🚀</span><span data-fr>Dès 2 100 FCFA/an</span><span data-en>From 2,100 FCFA/yr</span></div>
+    <div class="tbsep"></div>
+    <div class="tbi"><span>🔒</span><span data-fr>Données sécurisées</span><span data-en>Secure data</span></div>
+    <div class="tbsep"></div>
+    <div class="tbi"><span>📱</span><span data-fr>Mobile & Desktop</span><span data-en>Mobile & Desktop</span></div>
+    <div class="tbsep"></div>
+    <div class="tbi"><span>🌍</span><span data-fr>20+ pays couverts</span><span data-en>20+ countries</span></div>
+    <div class="tbsep"></div>
+    <div class="tbi"><span>💬</span><span data-fr>Support WhatsApp</span><span data-en>WhatsApp support</span></div>
+    <div class="tbsep"></div>
+    <div class="tbi"><span>🤝</span><span data-fr>Commission 40%</span><span data-en>40% commission</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ========== APPS ========== -->
+<section class="sec" id="apps">
+  <div class="si">
+    <div class="sh">
+      <div class="slbl au" data-fr>Nos Applications</div>
+      <div class="slbl au" data-en>Our Applications</div>
+      <h2 class="sh2 au d1"><span data-fr>Une suite complète d'outils <em>professionnels</em></span><span data-en>A complete suite of <em>professional tools</em></span></h2>
+      <p class="sdesc au d2"><span data-fr>Des applications pensées pour les réalités africaines, avec des standards internationaux.</span><span data-en>Applications designed for African realities, meeting international standards.</span></p>
+    </div>
+    <div class="ag" id="appsGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== WHY ========== -->
+<section class="sec" id="why">
+  <div class="si">
+    <div class="sh">
+      <div class="slbl au" data-fr>Nos avantages</div>
+      <div class="slbl au" data-en>Our advantages</div>
+      <h2 class="sh2 au d1"><span data-fr>Pourquoi choisir <em>Mbeuk'Technologies</em> ?</span><span data-en>Why choose <em>Mbeuk'Technologies</em>?</span></h2>
+      <p class="sdesc au d2"><span data-fr>Des solutions pensées pour l'Afrique avec des standards internationaux.</span><span data-en>Solutions designed for Africa meeting international standards.</span></p>
+    </div>
+    <div class="wg" id="whyGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== AMBASSADOR ========== -->
+<section class="sec" id="ambassador">
+  <div class="si">
+    <div class="sh au">
+      <div class="slbl" data-fr>Programme Ambassadeurs</div>
+      <div class="slbl" data-en>Ambassador Program</div>
+      <h2 class="sh2" style="color:#fff">
+        <span data-fr>Gagnez de l'argent en vendant nos <em style="color:#a78bfa">solutions SaaS</em></span>
+        <span data-en>Earn money selling our <em style="color:#a78bfa">SaaS solutions</em></span>
+      </h2>
+      <p class="sdesc" style="color:rgba(255,255,255,.55)">
+        <span data-fr>Rejoignez notre réseau d'ambassadeurs et générez des revenus récurrents en recommandant nos applications professionnelles.</span>
+        <span data-en>Join our ambassador network and generate recurring income by recommending our professional applications.</span>
+      </p>
+    </div>
+
+    <!-- Commission highlight -->
+    <div class="amhighlight au d1">
+      <div class="amhlarge">40%</div>
+      <div class="amhsub" data-fr>de commission sur chaque vente — revenus récurrents</div>
+      <div class="amhsub" data-en>commission on every sale — recurring income</div>
+    </div>
+
+    <!-- Profile cards -->
+    <div class="amg au d2">
+      <div class="amc">
+        <span class="amci">🎓</span>
+        <div class="amcn" data-fr>Étudiants</div>
+        <div class="amcn" data-en>Students</div>
+        <p class="amcd" data-fr>Gagnez un revenu supplémentaire entre les cours en partageant nos outils sur vos réseaux.</p>
+        <p class="amcd" data-en>Earn extra income between classes by sharing our tools on your networks.</p>
+      </div>
+      <div class="amc">
+        <span class="amci">📢</span>
+        <div class="amcn" data-fr>Influenceurs</div>
+        <div class="amcn" data-en>Influencers</div>
+        <p class="amcd" data-fr>Monétisez votre audience TikTok, Facebook, Instagram avec des outils professionnels africains.</p>
+        <p class="amcd" data-en>Monetize your TikTok, Facebook, Instagram audience with African professional tools.</p>
+      </div>
+      <div class="amc">
+        <span class="amci">💼</span>
+        <div class="amcn" data-fr>Commerciaux &amp; Freelances</div>
+        <div class="amcn" data-en>Sales &amp; Freelancers</div>
+        <p class="amcd" data-fr>Intégrez nos solutions dans votre portefeuille de services et augmentez vos revenus.</p>
+        <p class="amcd" data-en>Add our solutions to your service portfolio and boost your income.</p>
+      </div>
+      <div class="amc">
+        <span class="amci">🌐</span>
+        <div class="amcn" data-fr>Créateurs de contenu</div>
+        <div class="amcn" data-en>Content Creators</div>
+        <p class="amcd" data-fr>Créez du contenu autour de nos outils et percevez une commission sur chaque abonnement.</p>
+        <p class="amcd" data-en>Create content around our tools and earn a commission on every subscription.</p>
+      </div>
+      <div class="amc">
+        <span class="amci">🏢</span>
+        <div class="amcn" data-fr>Entreprises partenaires</div>
+        <div class="amcn" data-en>Partner Businesses</div>
+        <p class="amcd" data-fr>Proposez nos solutions à vos clients et bénéficiez d'une commission attractive à chaque renouvellement.</p>
+        <p class="amcd" data-en>Offer our solutions to your clients and earn an attractive commission on each renewal.</p>
+      </div>
+      <div class="amc">
+        <span class="amci">📱</span>
+        <div class="amcn" data-fr>Marketing local</div>
+        <div class="amcn" data-en>Local Marketers</div>
+        <p class="amcd" data-fr>Prospectez dans votre ville et convertissez les entreprises locales. Revenus immédiats.</p>
+        <p class="amcd" data-en>Prospect in your city and convert local businesses. Immediate income.</p>
+      </div>
+    </div>
+
+    <!-- Two columns: benefits + form -->
+    <div class="amgrid au d3">
+      <!-- Benefits -->
+      <div class="ambenefbox">
+        <h4 data-fr>🎯 Avantages du programme</h4>
+        <h4 data-en>🎯 Program benefits</h4>
+        <div class="ambenefits">
+          <div class="ambenefit">
+            <div class="ambullet">💰</div>
+            <p class="ambt" data-fr><strong>40% de commission</strong> sur chaque vente réalisée — l'un des taux les plus élevés du marché.</p>
+            <p class="ambt" data-en><strong>40% commission</strong> on every sale — one of the highest rates on the market.</p>
+          </div>
+          <div class="ambenefit">
+            <div class="ambullet">🔄</div>
+            <p class="ambt" data-fr><strong>Revenus récurrents</strong> — percevez votre commission à chaque renouvellement d'abonnement annuel.</p>
+            <p class="ambt" data-en><strong>Recurring income</strong> — earn your commission at every annual renewal.</p>
+          </div>
+          <div class="ambenefit">
+            <div class="ambullet">🚀</div>
+            <p class="ambt" data-fr><strong>Démarrage immédiat</strong> — pas d'investissement initial. Commencez à vendre dès aujourd'hui.</p>
+            <p class="ambt" data-en><strong>Start immediately</strong> — no upfront investment. Start selling today.</p>
+          </div>
+          <div class="ambenefit">
+            <div class="ambullet">📱</div>
+            <p class="ambt" data-fr><strong>Outils marketing fournis</strong> — visuels, scripts, arguments de vente et supports de présentation.</p>
+            <p class="ambt" data-en><strong>Marketing tools provided</strong> — visuals, scripts, sales arguments and presentation materials.</p>
+          </div>
+          <div class="ambenefit">
+            <div class="ambullet">🌍</div>
+            <p class="ambt" data-fr><strong>Accessible partout en Afrique</strong> — vendez depuis votre pays, votre ville, votre quartier.</p>
+            <p class="ambt" data-en><strong>Accessible across Africa</strong> — sell from your country, city or neighborhood.</p>
+          </div>
+          <div class="ambenefit">
+            <div class="ambullet">💬</div>
+            <p class="ambt" data-fr><strong>Support dédié</strong> — un accompagnement WhatsApp direct pour vous aider à conclure vos ventes.</p>
+            <p class="ambt" data-en><strong>Dedicated support</strong> — direct WhatsApp support to help you close your sales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration form -->
+      <div class="amformbox">
+        <h4 data-fr>✍️ Devenir ambassadeur</h4>
+        <h4 data-en>✍️ Become an ambassador</h4>
+        <form onsubmit="submitAmbassador(event)" autocomplete="off">
+          <div class="amfrow">
+            <input class="aminput" id="am_nom" type="text" placeholder="Nom *" required/>
+            <input class="aminput" id="am_prenom" type="text" placeholder="Prénom *" required/>
+          </div>
+          <input class="aminput full" id="am_email" type="email" placeholder="Email *" required/>
+          <input class="aminput full" id="am_wa" type="tel" placeholder="WhatsApp (ex: +237 6XX XXX XXX) *" required/>
+          <select class="aminput amselect full" id="am_pays" required>
+            <option value="" disabled selected data-fr>Pays *</option>
+            <option value="" disabled selected data-en>Country *</option>
+            <option>Cameroun</option><option>Côte d'Ivoire</option><option>Sénégal</option>
+            <option>Mali</option><option>Burkina Faso</option><option>Niger</option>
+            <option>Togo</option><option>Bénin</option><option>Guinée</option>
+            <option>Congo</option><option>RD Congo</option><option>Gabon</option>
+            <option>Tchad</option><option>Centrafrique</option><option>Madagascar</option>
+            <option>Autre / Other</option>
+          </select>
+          <textarea class="aminput full" id="am_motivation" placeholder="Pourquoi souhaitez-vous devenir ambassadeur ? (optionnel)" rows="4"></textarea>
+          <button type="submit" class="ambtn">
+            <span data-fr>🚀 Rejoindre le programme</span>
+            <span data-en>🚀 Join the program</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="amstats au d4">
+      <div class="amstt">
+        <div class="amstn">40%</div>
+        <div class="amstl" data-fr>Commission par vente</div>
+        <div class="amstl" data-en>Commission per sale</div>
+      </div>
+      <div class="amstt">
+        <div class="amstn">12</div>
+        <div class="amstl" data-fr>Produits à vendre</div>
+        <div class="amstl" data-en>Products to sell</div>
+      </div>
+      <div class="amstt">
+        <div class="amstn">0 FCFA</div>
+        <div class="amstl" data-fr>Investissement requis</div>
+        <div class="amstl" data-en>Investment required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== LICENSE STORE ========== -->
+<section class="sec" id="license">
+  <div class="si">
+    <div class="sh">
+      <div class="slbl au" data-fr>Boutique des licences</div>
+      <div class="slbl au" data-en>License Store</div>
+      <h2 class="sh2 au d1"><span data-fr>Achetez votre licence <em>en toute sécurité</em></span><span data-en>Buy your license <em>securely</em></span></h2>
+      <p class="sdesc au d2"><span data-fr>Obtenez un accès immédiat à toutes vos applications favorites. Paiement sécurisé, activation instantanée.</span><span data-en>Get immediate access to all your favorite applications. Secure payment, instant activation.</span></p>
+    </div>
+
+    <div class="licgrid">
+      <div class="licc au d1">
+        <span class="licci">🧾</span>
+        <div class="liccn" data-fr>Licences Starter</div>
+        <div class="liccn" data-en>Starter Licenses</div>
+        <div class="liccp" data-fr>Dès 2 100 FCFA</div>
+        <div class="liccp" data-en>From 2,100 FCFA</div>
+        <p class="liccd" data-fr>Accès annuel aux applications d'entrée de gamme : MbeukCV, MbeukImmigPro, MbeukAdtrack, MbeukSalary.</p>
+        <p class="liccd" data-en>Annual access to entry-level applications: MbeukCV, MbeukImmigPro, MbeukAdtrack, MbeukSalary.</p>
+      </div>
+      <div class="licc au d2">
+        <span class="licci">💼</span>
+        <div class="liccn" data-fr>Licences Business</div>
+        <div class="liccn" data-en>Business Licenses</div>
+        <div class="liccp" data-fr>Dès 5 100 FCFA</div>
+        <div class="liccp" data-en>From 5,100 FCFA</div>
+        <p class="liccd" data-fr>Licences pour les applications business : MbeukBiz, MbeukTontine, MbeukChurch, MbeukBTP.</p>
+        <p class="liccd" data-en>Licenses for business applications: MbeukBiz, MbeukTontine, MbeukChurch, MbeukBTP.</p>
+      </div>
+      <div class="licc au d3">
+        <span class="licci">🏭</span>
+        <div class="liccn" data-fr>Licences Enterprise</div>
+        <div class="liccn" data-en>Enterprise Licenses</div>
+        <div class="liccp" data-fr>Dès 10 200 FCFA</div>
+        <div class="liccp" data-en>From 10,200 FCFA</div>
+        <p class="liccd" data-fr>Accès aux solutions professionnelles avancées : MbeukHR, MbeukMechanical, MbeukAnalytics.</p>
+        <p class="liccd" data-en>Access to advanced professional solutions: MbeukHR, MbeukMechanical, MbeukAnalytics.</p>
+      </div>
+    </div>
+
+    <div class="licctabottom au d4">
+      <a href="https://fivrfqez.mychariow.shop/" target="_blank" rel="noopener">
+        <button class="blicense">🛒 <span data-fr>Accéder à la boutique des licences</span><span data-en>Visit the license store</span> →</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== SCHOOL ========== -->
+<section class="sec" id="school">
+  <div class="si">
+    <div class="schgrid">
+      <!-- Visual card -->
+      <div class="schvis au d1">
+        <div class="schcard">
+          <div class="schcn">ENTL — École des Nouvelles Technologies &amp; Linguistique</div>
+          <div class="schcs">International · En ligne · Certifiant</div>
+          <div class="schitems">
+            <div class="schitem"><span>💻</span><span data-fr>Développement web</span><span data-en>Web development</span></div>
+            <div class="schitem"><span>🤖</span><span data-fr>Intelligence artificielle</span><span data-en>Artificial intelligence</span></div>
+            <div class="schitem"><span>📊</span><span data-fr>Data Analytics</span><span data-en>Data Analytics</span></div>
+            <div class="schitem"><span>🌐</span><span data-fr>Marketing digital</span><span data-en>Digital marketing</span></div>
+            <div class="schitem"><span>🔐</span><span data-fr>Cybersécurité</span><span data-en>Cybersecurity</span></div>
+            <div class="schitem"><span>📱</span><span data-fr>Apps mobiles</span><span data-en>Mobile apps</span></div>
+            <div class="schitem"><span>🇫🇷</span><span data-fr>Français professionnel</span><span data-en>Professional French</span></div>
+            <div class="schitem"><span>🇬🇧</span><span data-fr>Anglais professionnel</span><span data-en>Professional English</span></div>
+          </div>
+          <div class="schbadge">✅ <span data-fr>Formations certifiantes disponibles</span><span data-en>Certified courses available</span></div>
+        </div>
+      </div>
+      <!-- Text -->
+      <div class="schtext au d2">
+        <div class="slbl" data-fr>École en ligne MbeukTech</div>
+        <div class="slbl" data-en>MbeukTech Online School</div>
+        <h3>
+          <span data-fr>Formez-vous aux <em>technologies de demain</em></span>
+          <span data-en>Train for <em>tomorrow's technologies</em></span>
+        </h3>
+        <p data-fr>ENTL (École des Nouvelles Technologies et Linguistique) est notre plateforme de formation en ligne dédiée aux Africains qui veulent maîtriser les outils numériques modernes, apprendre à leur rythme et obtenir des certifications reconnues.</p>
+        <p data-en>ENTL (School of New Technologies and Linguistics) is our online training platform dedicated to Africans who want to master modern digital tools, learn at their own pace and earn recognized certifications.</p>
+        <div class="schbenefits">
+          <div class="schbenefit">
+            <div class="schbullet">✅</div>
+            <span data-fr>Cours 100% en ligne, accessibles 24h/24 et 7j/7</span>
+            <span data-en>100% online courses, accessible 24/7</span>
+          </div>
+          <div class="schbenefit">
+            <div class="schbullet">✅</div>
+            <span data-fr>Formations en français et en anglais</span>
+            <span data-en>Courses in French and English</span>
+          </div>
+          <div class="schbenefit">
+            <div class="schbullet">✅</div>
+            <span data-fr>Certificats téléchargeables à l'issue des formations</span>
+            <span data-en>Downloadable certificates upon course completion</span>
+          </div>
+          <div class="schbenefit">
+            <div class="schbullet">✅</div>
+            <span data-fr>Prix adaptés au marché africain</span>
+            <span data-en>Pricing tailored for the African market</span>
+          </div>
+          <div class="schbenefit">
+            <div class="schbullet">✅</div>
+            <span data-fr>Instructeurs expérimentés et pédagogie moderne</span>
+            <span data-en>Experienced instructors and modern pedagogy</span>
+          </div>
+        </div>
+        <a href="https://entl-international.vercel.app/" target="_blank" rel="noopener">
+          <button class="bschool">🎓 <span data-fr>Découvrir les formations</span><span data-en>Explore the courses</span> →</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== CONTACT ========== -->
+<section class="sec" id="contact">
+  <div class="si">
+    <div class="sh">
+      <div class="slbl au" data-fr>Contact</div>
+      <div class="slbl au" data-en>Contact</div>
+      <h2 class="sh2 au d1"><span data-fr>Parlons de votre <em>projet</em></span><span data-en>Let's talk about your <em>project</em></span></h2>
+      <p class="sdesc au d2"><span data-fr>Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner.</span><span data-en>Our team is available to answer all your questions and support you.</span></p>
+    </div>
+    <div class="cg au d1">
+      <a href="https://wa.me/237620964316" target="_blank" rel="noopener" class="cc">
+        <span class="ci">💬</span><div class="cl">WhatsApp</div><div class="cv" style="color:#25D366">+237 620 964 316</div>
+      </a>
+      <a href="tel:+237691465788" class="cc">
+        <span class="ci">📞</span><div class="cl" data-fr>Appel direct</div><div class="cl" data-en>Direct call</div><div class="cv">+237 691 465 788</div>
+      </a>
+      <a href="mailto:mbeuktech@gmail.com" class="cc">
+        <span class="ci">📧</span><div class="cl">Email</div><div class="cv">mbeuktech@gmail.com</div>
+      </a>
+    </div>
+    <div class="cbox au d2">
+      <h3 data-fr>Prêt à transformer votre activité ?</h3>
+      <h3 data-en>Ready to transform your business?</h3>
+      <p data-fr>Contactez-nous dès aujourd'hui et découvrez comment nos solutions SaaS peuvent révolutionner vos opérations.</p>
+      <p data-en>Contact us today and discover how our SaaS solutions can revolutionize your operations.</p>
+      <div class="cbtns">
+        <a href="https://wa.me/237620964316" target="_blank" rel="noopener"><button class="bctwa">💬 <span data-fr>WhatsApp</span><span data-en>WhatsApp</span></button></a>
+        <a href="mailto:mbeuktech@gmail.com"><button class="bctem">📧 <span data-fr>Envoyer un email</span><span data-en>Send email</span></button></a>
+        <a href="tel:+237691465788"><button class="bphone">📞 <span data-fr>Appeler</span><span data-en>Call us</span></button></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer">
+  <div class="fi">
+    <div class="ftop">
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="fgM" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#9ca3af"/><stop offset="100%" stop-color="#e5e7eb"/>
+              </linearGradient>
+              <linearGradient id="fgT" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="200" rx="30" fill="#1e293b"/>
+            <circle cx="100" cy="100" r="83" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="350 175" stroke-linecap="round" transform="rotate(-42 100 100)"/>
+            <text x="30" y="128" font-family="Arial Black,sans-serif" font-weight="900" font-size="82" fill="url(#fgM)">M</text>
+            <text x="112" y="125" font-family="Arial Black,sans-serif" font-weight="900" font-size="74" fill="url(#fgT)">T</text>
+          </svg>
+          <div>
+            <div class="fln">Mbeuk<span>'</span>Technologies</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase">Innover · Développer · Transformer</div>
+          </div>
+        </div>
+        <p class="fab" data-fr>Solutions SaaS professionnelles pour les particuliers, entreprises et industries d'Afrique et du monde.</p>
+        <p class="fab" data-en>Professional SaaS solutions for individuals, businesses and industries across Africa and worldwide.</p>
+        <!-- Social icons -->
+        <div class="fsoc">
+          <a href="https://linkedin.com/in/brice-aiman-mbeuka" target="_blank" rel="noopener" class="soc" title="LinkedIn">in</a>
+          <a href="https://www.facebook.com/share/1CJmrEFg8g/" target="_blank" rel="noopener" class="soc" title="Facebook">f</a>
+          <a href="https://www.youtube.com/@briceaimanmbeuka" target="_blank" rel="noopener" class="soc" title="YouTube">▶</a>
+          <a href="https://www.tiktok.com/@letoutpuissantlalame" target="_blank" rel="noopener" class="soc" title="TikTok">♪</a>
+          <a href="https://wa.me/237620964316" target="_blank" rel="noopener" class="soc" title="WhatsApp">💬</a>
+        </div>
+      </div>
+      <!-- Apps links -->
+      <div>
+        <div class="fct" data-fr>Applications</div>
+        <div class="fct" data-en>Applications</div>
+        <button class="fa" onclick="openModal('mbeukcv')">MbeukCV</button>
+        <button class="fa" onclick="openModal('mbeukimmig')">MbeukImmigPro</button>
+        <button class="fa" onclick="openModal('mbeukadtrack')">MbeukAdtrack</button>
+        <button class="fa" onclick="openModal('mbeuksalary')">MbeukSalary</button>
+        <button class="fa" onclick="openModal('mbeukbiz')">MbeukBiz</button>
+        <button class="fa" onclick="openModal('mbeuktontine')">MbeukTontine</button>
+        <button class="fa" onclick="openModal('mbeukchurch')">MbeukChurch</button>
+        <button class="fa" onclick="openModal('mbeukbtp')">MbeukBTP</button>
+        <button class="fa" onclick="openModal('mbeukhr')">MbeukHR</button>
+      </div>
+      <!-- Company links -->
+      <div>
+        <div class="fct" data-fr>Entreprise</div>
+        <div class="fct" data-en>Company</div>
+        <span class="fa" onclick="goTo('ambassador')" data-fr>Programme Ambassadeurs</span>
+        <span class="fa" onclick="goTo('ambassador')" data-en>Ambassador Program</span>
+        <span class="fa" onclick="goTo('license')" data-fr>Boutique Licences</span>
+        <span class="fa" onclick="goTo('license')" data-en>License Store</span>
+        <a href="https://entl-international.vercel.app/" target="_blank" rel="noopener" class="fa" data-fr>École en ligne ENTL</a>
+        <a href="https://entl-international.vercel.app/" target="_blank" rel="noopener" class="fa" data-en>ENTL Online School</a>
+        <span class="fa" onclick="goTo('why')" data-fr>Nos avantages</span>
+        <span class="fa" onclick="goTo('why')" data-en>Our advantages</span>
+      </div>
+      <!-- Legal & support -->
+      <div>
+        <div class="fct" data-fr>Support &amp; Légal</div>
+        <div class="fct" data-en>Support &amp; Legal</div>
+        <a href="https://wa.me/237620964316" target="_blank" class="fa" data-fr>Support WhatsApp</a>
+        <a href="https://wa.me/237620964316" target="_blank" class="fa" data-en>WhatsApp Support</a>
+        <a href="mailto:mbeuktech@gmail.com" class="fa">mbeuktech@gmail.com</a>
+        <a href="tel:+237691465788" class="fa">+237 691 465 788</a>
+        <a href="#" class="fa" data-fr>Conditions d'utilisation</a>
+        <a href="#" class="fa" data-en>Terms of service</a>
+        <a href="#" class="fa" data-fr>Confidentialité</a>
+        <a href="#" class="fa" data-en>Privacy policy</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="fc">© <span id="yr"></span> Mbeuk'Technologies. <span data-fr>Tous droits réservés.</span><span data-en>All rights reserved.</span></div>
+      <div class="fc"><span data-fr>Fait avec ❤️ en</span><span data-en>Made with ❤️ in</span> <span style="color:#60a5fa">Afrique 🌍</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== WHATSAPP FAB ========== -->
+<a href="https://wa.me/237620964316" target="_blank" rel="noopener" class="waf">
+  <div class="wtt" data-fr>Discuter sur WhatsApp</div>
+  <div class="wtt" data-en>Chat on WhatsApp</div>
+  💬
+</a>
+
+<!-- ========== MODAL ROOT ========== -->
+<div id="mroot"></div>
+
+<!-- ====================================================
+     JAVASCRIPT — Toutes les fonctions existantes préservées
+     + nouvelles fonctionnalités ajoutées
+     ==================================================== -->
+<script>
+/* ===== APPS DATA ===== */
+const APPS=[
+  /* 1 — MbeukCV */
+  {id:'mbeukcv',icon:'📄',link:'https://cvprogenerator.vercel.app/acces.html',name:'MbeukCV',
+   price:'2 100 FCFA/an',priceEN:'2,100 FCFA/yr (~$3.5)',
+   tagFR:'CV & Lettres intelligents',tagEN:'Smart CVs & Cover Letters',
+   descFR:"Plateforme intelligente qui génère automatiquement des CV professionnels et lettres de motivation adaptées aux offres d'emploi, stages, bourses et opportunités académiques, en versions française et anglaise.",
+   descEN:"Intelligent platform that automatically generates professional CVs and cover letters tailored to job offers, internships, scholarships and academic opportunities, in French and English.",
+   featsFR:['Génération automatique de CV','Lettres de motivation sur mesure','Versions Français & Anglais','Analyse des offres','Emploi, stage et bourse','Format international ATS'],
+   featsEN:['Automatic CV generation','Tailored cover letters','French & English versions','Job offer analysis','Jobs, internships & scholarships','International ATS format']},
+
+  /* 2 — MbeukImmigPro */
+  {id:'mbeukimmig',icon:'✈️',link:'https://mbeukimmigpro.vercel.app/access.html',name:'MbeukImmigPro',
+   price:'2 100 FCFA/an',priceEN:'2,100 FCFA/yr (~$3.5)',
+   tagFR:'Immigration intelligente 20+ pays',tagEN:'Smart immigration 20+ countries',
+   descFR:"Plateforme complète d'immigration couvrant les procédures de plus de 20 pays avec génération automatique de CV adaptés aux standards internationaux et guides administratifs détaillés.",
+   descEN:"Complete immigration platform covering procedures for 20+ countries with automatic generation of internationally-standard CVs and detailed administrative guides.",
+   featsFR:["Procédures d'immigration 20+ pays","CV internationaux générés auto","Conseils administratifs","Guides visa et séjour","Informations ambassades","Documents requis par pays"],
+   featsEN:["20+ country immigration procedures","Auto-generated international CVs","Administrative guidance","Visa & residence guides","Embassy information","Documents by country"]},
+
+  /* 3 — MbeukAdtrack (NEW) */
+  {id:'mbeukadtrack',icon:'📈',link:'https://mbeukadtrack.vercel.app/',name:'MbeukAdtrack',
+   price:'2 100 FCFA/an',priceEN:'2,100 FCFA/yr (~$3.5)',
+   tagFR:'Suivi publicitaire multi-plateformes',tagEN:'Multi-platform ad tracking',
+   descFR:"Tableau de bord analytique unifié pour suivre et optimiser vos campagnes publicitaires Facebook Ads, TikTok Ads et Google Ads en temps réel. Analysez votre ROI, contrôlez vos dépenses et générez des rapports professionnels automatiquement.",
+   descEN:"Unified analytics dashboard to track and optimize your Facebook Ads, TikTok Ads and Google Ads campaigns in real time. Analyze your ROI, control spending and automatically generate professional reports.",
+   featsFR:['Suivi Facebook Ads','Suivi TikTok Ads','Suivi Google Ads','Tableau de bord analytique','Statistiques de conversion','Suivi des dépenses pub','Gestion multi-campagnes','Analyse ROI','Génération de rapports','KPIs en temps réel'],
+   featsEN:['Facebook Ads tracking','TikTok Ads tracking','Google Ads tracking','Analytics dashboard','Conversion statistics','Ad spend tracking','Multi-campaign management','ROI analysis','Report generation','Real-time KPIs']},
+
+  /* 4 — MbeukSalary */
+  {id:'mbeuksalary',icon:'💰',link:'https://mbeuksalary.vercel.app/',name:'MbeukSalary',
+   price:'3 100 FCFA/an',priceEN:'3,100 FCFA/yr (~$5.2)',
+   tagFR:'Gestion financière personnelle',tagEN:'Personal financial management',
+   descFR:"Gérez efficacement votre salaire, vos dépenses et vos prévisions financières. Outil idéal pour particuliers, étudiants et entrepreneurs qui souhaitent reprendre le contrôle de leurs finances.",
+   descEN:"Efficiently manage your salary, expenses and financial forecasts. The ideal tool for individuals, students and entrepreneurs who want to regain control of their finances.",
+   featsFR:['Gestion du salaire','Suivi des dépenses','Prévisions financières','Budget personnel','Graphiques de dépenses','Historique financier','Alertes de dépassement'],
+   featsEN:['Salary management','Expense tracking','Financial forecasts','Personal budget','Expense charts','Financial history','Overspend alerts']},
+
+  /* 5 — MbeukBiz */
+  {id:'mbeukbiz',icon:'🏢',link:'https://mbeukbiz.vercel.app/',name:'MbeukBiz',
+   price:'5 100 FCFA/an',priceEN:'5,100 FCFA/yr (~$8.5)',
+   tagFR:'Gestion commerciale & restauration',tagEN:'Business & restaurant management',
+   descFR:"Plateforme de gestion commerciale complète : stock, services et restauration pour suivre ventes, dépenses et performances. Idéale pour les PME, boutiques, restaurants et prestataires de services africains.",
+   descEN:"Complete commercial management platform: stock, services and restaurant management to track sales, expenses and performance. Ideal for African SMEs, shops, restaurants and service providers.",
+   featsFR:['Gestion de stock','Suivi des ventes','Gestion restaurant','Rapports automatiques','Gestion des dépenses','Facturation client','Tableau de bord'],
+   featsEN:['Stock management','Sales tracking','Restaurant management','Automatic reports','Expense management','Client billing','Dashboard']},
+
+  /* 6 — MbeukTontine */
+  {id:'mbeuktontine',icon:'🤝',link:'https://mbeuktontine.vercel.app/',name:'MbeukTontine',
+   price:'5 100 FCFA/an',priceEN:'5,100 FCFA/yr (~$8.5)',
+   tagFR:'Tontines modernes & cotisations',tagEN:'Modern tontines & contributions',
+   descFR:"Gérez vos tontines et cotisations en groupe avec un système intelligent de suivi, calcul automatique des tours et rappels. Adapté aux réalités financières africaines.",
+   descEN:"Manage your tontines and group contributions with an intelligent tracking system, automatic round calculation and reminders. Adapted to African financial realities.",
+   featsFR:['Gestion des tontines','Calcul automatique des tours','Notifications & rappels','Historique des cotisations','Gestion multi-groupes','Rapports financiers'],
+   featsEN:['Tontine management','Automatic round calculation','Notifications & reminders','Contribution history','Multi-group management','Financial reports']},
+
+  /* 7 — MbeukChurch (NEW) */
+  {id:'mbeukchurch',icon:'⛪',link:'https://mbeukchurch.vercel.app/',name:'MbeukChurch',
+   price:'À partir de 25 000 FCFA/an',priceEN:'From 25,000 FCFA/yr (~$42)',
+   tagFR:'Gestion complète des communautés religieuses',tagEN:'Complete religious community management',
+   descFR:"Solution SaaS premium dédiée à la gestion moderne des communautés religieuses : membres, finances, événements, cellules et départements. Un outil professionnel qui allie foi, technologie et transparence pour un ministère efficace.",
+   descEN:"Premium SaaS solution dedicated to the modern management of religious communities: members, finances, events, cells and departments. A professional tool combining faith, technology and transparency for an effective ministry.",
+   featsFR:['Gestion des membres','Dîmes et offrandes','Gestion financière','Gestion des événements','Gestion des cellules','Suivi des présences','Gestion des départements','Diffusion des annonces','Tableau de bord admin','Statistiques de croissance','Activités pastorales','Génération de rapports'],
+   featsEN:['Member management','Tithes and offerings','Financial management','Event management','Cell group management','Attendance tracking','Department management','Announcement broadcasting','Admin dashboard','Growth statistics','Pastoral activities','Report generation']},
+
+  /* 8 — MbeukBTP */
+  {id:'mbeukbtp',icon:'🏗️',link:'https://mbeukbtp.vercel.app/',name:'MbeukBTP',
+   price:'5 100 FCFA/an',priceEN:'5,100 FCFA/yr (~$8.5)',
+   tagFR:'Bâtiment & génie civil digital',tagEN:'Digital construction & civil engineering',
+   descFR:"Solution numérique complète pour le secteur du bâtiment et génie civil : simulation de devis, suivi des chantiers, estimation des matériaux et gestion des projets de construction.",
+   descEN:"Complete digital solution for the construction and civil engineering sector: quote simulation, site tracking, material estimation and construction project management.",
+   featsFR:['Simulation de devis','Calcul du ciment','Suivi des chantiers','Devis professionnels','Estimation matériaux','Gestion des projets BTP'],
+   featsEN:['Quote simulation','Cement calculation','Site tracking','Professional quotes','Material estimation','Construction project management']},
+
+  /* 9 — MbeukHR */
+  {id:'mbeukhr',icon:'👥',link:'https://mbeukrh.vercel.app/',name:'MbeukHR',
+   price:'10 200 FCFA/an',priceEN:'10,200 FCFA/yr (~$17)',
+   tagFR:'RH & paie complète',tagEN:'Complete HR & payroll',
+   descFR:"Plateforme complète de gestion des ressources humaines : employés, congés, salaires, bulletins de paie et documents administratifs. Conçue pour les entreprises africaines de toutes tailles.",
+   descEN:"Complete HR management platform: employees, leave, salaries, pay slips and administrative documents. Designed for African businesses of all sizes.",
+   featsFR:['Gestion des employés','Gestion des congés','Bulletins de paie','Contrats de travail','Sanctions disciplinaires','Suivi des présences','Rapports RH'],
+   featsEN:['Employee management','Leave management','Pay slips','Employment contracts','Disciplinary actions','Attendance tracking','HR reports']},
+
+  /* 10 — MbeukMechanical */
+  {id:'mbeukmechanical',icon:'⚙️',link:'https://mbeukmechanic.vercel.app/',name:'MbeukMechanical',
+   price:'10 200 FCFA/an',priceEN:'10,200 FCFA/yr (~$17)',
+   tagFR:'Ingénierie mécanique avancée',tagEN:'Advanced mechanical engineering',
+   descFR:"Plateforme d'ingénierie mécanique avancée : simulations, analyses de contraintes, calculs de déformations et outils techniques pour ingénieurs et étudiants en mécanique.",
+   descEN:"Advanced mechanical engineering platform: simulations, stress analysis, deformation calculations and technical tools for engineers and mechanical engineering students.",
+   featsFR:['Simulation mécanique','Analyse des contraintes','Calcul des déformations','Dimensionnement','Calculs avancés','Résultats exportables'],
+   featsEN:['Mechanical simulation','Stress analysis','Deformation calculation','Dimensioning','Advanced calculations','Exportable results']},
+
+  /* 11 — MbeukAnalytics */
+  {id:'mbeukanalytics',icon:'📊',link:'https://mbeukanalytics.vercel.app/',name:'MbeukAnalytics',
+   price:'10 200 FCFA/an',priceEN:'10,200 FCFA/yr (~$17)',
+   tagFR:'Business Intelligence & Data',tagEN:'Business Intelligence & Data',
+   descFR:"Analyse automatique de données business : importez vos fichiers Excel et obtenez des graphiques, indicateurs et tableaux de bord analytiques de qualité professionnelle en quelques secondes.",
+   descEN:"Automatic business data analysis: import your Excel files and get professional-quality charts, indicators and analytical dashboards in seconds.",
+   featsFR:['Import Excel automatique','Business Intelligence','Graphiques interactifs','Tableaux de bord','Rapports intelligents','KPIs automatiques'],
+   featsEN:['Auto Excel import','Business Intelligence','Interactive charts','Dashboards','Smart reports','Automatic KPIs']},
+
+  /* 12 — MbeukFactory */
+  {id:'mbeukfactory',icon:'🏭',link:'https://mbeukfactory.vercel.app/',name:'MbeukFactory',
+   price:'Sur devis',priceEN:'Custom pricing',
+   tagFR:'Industrie 4.0 & monitoring',tagEN:'Industry 4.0 & monitoring',
+   descFR:"Solution industrielle de pointe pour le monitoring des machines, suivi de la production et gestion des capteurs en temps réel. Intégration IoT pour l'industrie 4.0 africaine.",
+   descEN:"Cutting-edge industrial solution for machine monitoring, production tracking and real-time sensor management. IoT integration for African industry 4.0.",
+   featsFR:['Suivi des machines','Monitoring industriel','Capteurs IoT intelligents','Tableaux de bord temps réel','Alertes maintenance','Rapports de production'],
+   featsEN:['Machine tracking','Industrial monitoring','Smart IoT sensors','Real-time dashboards','Maintenance alerts','Production reports']},
+];
+
+/* ===== WHY DATA ===== */
+const WHY=[
+  {icon:'🚀',tFR:'Solutions innovantes',tEN:'Innovative solutions',dFR:"Applications à la pointe de la technologie, conçues pour les défis d'aujourd'hui et de demain.",dEN:"Cutting-edge applications designed for today's and tomorrow's challenges."},
+  {icon:'🤖',tFR:'Intelligence artificielle',tEN:'Artificial intelligence',dFR:"Nos outils intègrent l'IA pour automatiser, analyser et optimiser vos processus métier.",dEN:"Our tools integrate AI to automate, analyze and optimize your business processes."},
+  {icon:'🔒',tFR:'Sécurité des données',tEN:'Data security',dFR:"Vos données sont protégées par des protocoles de sécurité de niveau enterprise.",dEN:"Your data is protected by enterprise-level security protocols."},
+  {icon:'📱',tFR:'Multi-plateforme',tEN:'Multi-platform',dFR:"Accessible sur mobile, tablette et desktop avec une expérience optimale partout.",dEN:"Accessible on mobile, tablet and desktop with an optimal experience everywhere."},
+  {icon:'🌍',tFR:'Marché africain',tEN:'African market focus',dFR:"Conçu pour les réalités économiques et les besoins du continent africain.",dEN:"Designed for the economic realities and needs of the African continent."},
+  {icon:'🎯',tFR:'Support professionnel',tEN:'Professional support',dFR:"Une équipe dédiée à votre succès, disponible sur WhatsApp pour vous accompagner.",dEN:"A team dedicated to your success, available on WhatsApp to support you."},
+];
+
+/* ===== LANGUAGE STATE ===== */
+let lang='fr';
+
+/* ===== SET LANGUAGE ===== */
+function setLang(l){
+  lang=l;
+  document.body.classList.toggle('lang-en',l==='en');
+  ['bFR','mbFR'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('on',l==='fr')});
+  ['bEN','mbEN'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('on',l==='en')});
+  renderApps();renderWhy();renderMini();
+}
+
+/* ===== RENDER APPS ===== */
+function renderApps(){
+  const e=document.getElementById('appsGrid');if(!e)return;
+  const en=lang==='en';
+  e.innerHTML=APPS.map((a,i)=>{
+    const isDevis=a.price==='Sur devis'||a.price==='Custom pricing';
+    const priceLabel=en?a.priceEN:a.price;
+    return `
+    <div class="ac au d${(i%3)+1}">
+      <div class="act">
+        <div style="display:flex;align-items:center;gap:13px">
+          <div class="aiw">${a.icon}</div>
+          <div><div class="ain">${a.name}</div><div class="ait">${en?a.tagEN:a.tagFR}</div></div>
+        </div>
+        <div class="aright">
+          <div class="abp pro">PRO</div>
+          <div class="abp ${isDevis?'devis':'price'}">${priceLabel}</div>
+        </div>
+      </div>
+      <p class="adesc">${en?a.descEN:a.descFR}</p>
+      <div class="afts">${(en?a.featsEN:a.featsFR).slice(0,3).map(f=>`<span class="ft">${f}</span>`).join('')}${(en?a.featsEN:a.featsFR).length>3?`<span class="ft">+${(en?a.featsEN:a.featsFR).length-3}</span>`:''}</div>
+      <div class="abtns">
+        <a href="${a.link}" target="_blank" rel="noopener" style="flex:1;text-decoration:none">
+          <button class="bsub" style="width:100%">${en?'Subscribe':'Souscrire'} →</button>
+        </a>
+        <button class="bdet" onclick="openModal('${a.id}')">${en?'Details':'Détails'}</button>
+      </div>
+    </div>`}).join('');
+  setTimeout(observe,60);
+}
+
+/* ===== RENDER WHY ===== */
+function renderWhy(){
+  const e=document.getElementById('whyGrid');if(!e)return;
+  const en=lang==='en';
+  e.innerHTML=WHY.map((w,i)=>`
+    <div class="wc au d${i+1}">
+      <span class="we">${w.icon}</span>
+      <div class="wt">${en?w.tEN:w.tFR}</div>
+      <p class="wd">${en?w.dEN:w.dFR}</p>
+    </div>`).join('');
+  setTimeout(observe,60);
+}
+
+/* ===== RENDER MINI APPS (Hero Card) ===== */
+function renderMini(){
+  const e=document.getElementById('miniApps');if(!e)return;
+  e.innerHTML=APPS.slice(0,6).map(a=>`<div class="mapp" onclick="openModal('${a.id}')"><span class="mai">${a.icon}</span><span class="man">${a.name}</span></div>`).join('');
+}
+
+/* ===== OPEN MODAL ===== */
+function openModal(id){
+  const a=APPS.find(x=>x.id===id);if(!a)return;
+  const en=lang==='en';
+  const priceLabel=en?a.priceEN:a.price;
+  document.getElementById('mroot').innerHTML=`
+    <div class="mov" onclick="closeModal(event)">
+      <div class="mob2" onclick="event.stopPropagation()">
+        <button class="mx" onclick="closeModal(null)">✕</button>
+        <div class="mh">
+          <div class="mi2">${a.icon}</div>
+          <div>
+            <div class="mna">${a.name}</div>
+            <div class="mta">${en?a.tagEN:a.tagFR}</div>
+          </div>
+        </div>
+        <div class="mprice">💰 ${priceLabel}</div>
+        <p class="mds">${en?a.descEN:a.descFR}</p>
+        <div class="mftl">${en?'Key features':'Fonctionnalités principales'}</div>
+        ${(en?a.featsEN:a.featsFR).map(f=>`<div class="mf"><div class="md"></div><span>${f}</span></div>`).join('')}
+        <div class="mbtns">
+          <a href="${a.link}" target="_blank" rel="noopener" style="flex:1;text-decoration:none">
+            <button class="bsub" style="width:100%;padding:13px;font-size:14px;border-radius:10px">${en?'Subscribe to '+a.name:'Souscrire à '+a.name} →</button>
+          </a>
+          <button class="bdet" onclick="closeModal(null)" style="padding:13px 18px;font-size:14px;border-radius:10px">${en?'Close':'Fermer'}</button>
+        </div>
+      </div>
+    </div>`;
+  document.body.style.overflow='hidden';
+}
+
+/* ===== CLOSE MODAL ===== */
+function closeModal(e){
+  if(e&&e.target!==e.currentTarget)return;
+  document.getElementById('mroot').innerHTML='';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal(null)});
+
+/* ===== SCROLL — NAV RAISE ===== */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('raised',window.scrollY>40);
+});
+
+/* ===== TOGGLE MOBILE MENU ===== */
+function toggleMob(){
+  const d=document.getElementById('mobm'),h=document.getElementById('hbg');
+  const o=d.classList.toggle('open');
+  h.textContent=o?'✕':'☰';
+}
+
+/* ===== SMOOTH SCROLL TO SECTION ===== */
+function goTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+  document.getElementById('mobm').classList.remove('open');
+  document.getElementById('hbg').textContent='☰';
+}
+
+/* ===== INTERSECTION OBSERVER (scroll animations) ===== */
+let obs2;
+function observe(){
+  if(obs2)obs2.disconnect();
+  obs2=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs2.unobserve(e.target)}});
+  },{threshold:0.1});
+  document.querySelectorAll('.au:not(.in)').forEach(el=>obs2.observe(el));
+}
+
+/* ===== OFFLINE HANDLER ===== */
+function handleOffline(){
+  const b=document.getElementById('offb');
+  if(!navigator.onLine)b.classList.add('show');
+  window.addEventListener('offline',()=>b.classList.add('show'));
+  window.addEventListener('online',()=>{
+    b.style.background='#dcfce7';b.style.borderColor='#86efac';b.style.color='#166534';
+    b.querySelector('[data-fr]').textContent='✅ Connexion rétablie !';
+    b.querySelector('[data-en]').textContent='✅ Connection restored!';
+    setTimeout(()=>b.classList.remove('show'),3000);
+  });
+}
+
+/* ===== PWA SERVICE WORKER ===== */
+function registerSW(){
+  if(!('serviceWorker' in navigator))return;
+  const sw=`const C='mt-v2';
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.add('/')).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(cached=>{const net=fetch(e.request).then(r=>{if(r&&r.status===200&&r.type==='basic'){const cl=r.clone();caches.open(C).then(c=>c.put(e.request,cl))}return r}).catch(()=>cached);return cached||net}))});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob),{scope:'/'}).catch(()=>{});
+}
+
+/* ===== AMBASSADOR FORM SUBMIT ===== */
+function submitAmbassador(e){
+  e.preventDefault();
+  const nom=document.getElementById('am_nom').value.trim();
+  const prenom=document.getElementById('am_prenom').value.trim();
+  const email=document.getElementById('am_email').value.trim();
+  const wa=document.getElementById('am_wa').value.trim();
+  const pays=document.getElementById('am_pays').value.trim();
+  const motiv=document.getElementById('am_motivation').value.trim();
+  const msg=`🤝 *Candidature Ambassadeur MbeukTech*\n\n👤 Nom complet : ${prenom} ${nom}\n📧 Email : ${email}\n📱 WhatsApp : ${wa}\n🌍 Pays : ${pays}${motiv?'\n\n💬 Motivation :\n'+motiv:''}`;
+  window.open('https://wa.me/237620964316?text='+encodeURIComponent(msg),'_blank');
+}
+
+/* ===== INIT ===== */
+document.getElementById('yr').textContent=new Date().getFullYear();
+renderApps();
+renderWhy();
+renderMini();
+document.addEventListener('DOMContentLoaded',()=>{observe();handleOffline();registerSW()});
+setTimeout(observe,250);
+</script>
+</body>
+</html>
